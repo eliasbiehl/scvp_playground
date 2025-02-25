@@ -16,7 +16,7 @@ SC_MODULE(bus_ms)
     tlm_utils::multi_passthrough_initiator_socket<bus_ms> iSocket;
     tlm_utils::multi_passthrough_target_socket<bus_ms> tSocket;
 
-    SC_HAS_PROCESS(bus_ms);
+    SC_HAS_PROCESS(bus_ms); // not necessary
     bus_ms(sc_module_name name, uint64_t memSize, sc_time routingDelay) : sc_module(name), _memSize(memSize), _routingDelay(routingDelay) {
         // Register callback for the b_transport interface
         tSocket.register_b_transport(this, &bus_ms::b_transport);

@@ -3,11 +3,12 @@
 
 SC_MODULE(RSLatch)
 {
-    sc_in<bool> A;
-    sc_in<bool> B;
-    sc_out<bool> D;
+    sc_in<bool> A; // Set (S) input: sets the latch when true.
+    sc_in<bool> B; // Reset (R) input: resets the latch when true.
 
-    sc_signal<bool> C; // Auxiliary signal
+    sc_out<bool> D; // Primary latch output.
+
+    sc_signal<bool> C; // Auxiliary signal used for latch feedback
 
     SC_CTOR(RSLatch) : A("A"), B("B"), D("D"), C("C")
     {
